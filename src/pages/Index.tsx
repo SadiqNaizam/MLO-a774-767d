@@ -1,14 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '../components/layout/MainAppLayout';
+import StatsCardGrid from '../components/Dashboard/StatsCardGrid';
+import SalesForecastChart from '../components/Dashboard/SalesForecastChart';
+import DealTypeChart from '../components/Dashboard/DealTypeChart';
+import BalanceOverviewChart from '../components/Dashboard/BalanceOverviewChart';
+import DealsTable from '../components/Dashboard/DealsTable';
+import TasksList from '../components/Dashboard/TasksList';
 
-const Index = () => {
+const IndexPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <MainAppLayout>
+      <StatsCardGrid />
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <SalesForecastChart className="lg:col-span-2" />
+        <DealTypeChart className="lg:col-span-1" />
       </div>
-    </div>
+
+      <BalanceOverviewChart />
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <DealsTable className="lg:col-span-2" />
+        <TasksList className="lg:col-span-1" /> 
+        {/* TasksList is designed with h-full, so it will adapt to the row height determined by DealsTable */}
+      </div>
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default IndexPage;
