@@ -1,101 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 60% 98%; /* PRD background: #F8FAFC */
+    --foreground: 210 10% 15%; /* PRD primaryText: #212529 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* PRD surface: #FFFFFF */
+    --card-foreground: 210 10% 15%; /* PRD primaryText: #212529 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* PRD surface: #FFFFFF */
+    --popover-foreground: 210 10% 15%; /* PRD primaryText: #212529 */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 229 36% 39%; /* PRD sidebar: #405189 */
+    --primary-foreground: 0 0% 100%; /* Assumed white text on primary (sidebar) */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* For secondary backgrounds, using PRD border color */
+    --secondary: 210 14% 92%; /* PRD border: #E9EBEC */
+    --secondary-foreground: 210 10% 15%; /* PRD primaryText: #212529 */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted background uses PRD background, muted foreground uses PRD secondaryText */
+    --muted: 210 60% 98%; /* PRD background: #F8FAFC */
+    --muted-foreground: 220 8% 57%; /* PRD secondaryText: #878A99 */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 171 89% 37%; /* PRD accentGreen: #0AB39C */
+    --accent-foreground: 0 0% 100%; /* Assumed white text on accentGreen */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 10 86% 61%; /* PRD accentRed: #F06548 */
+    --destructive-foreground: 0 0% 100%; /* Assumed white text on accentRed */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 14% 92%; /* PRD border: #E9EBEC */
+    --input: 210 14% 92%; /* PRD border: #E9EBEC (can be same as border) */
+    --ring: 201 70% 51%; /* PRD accentBlue: #299CDB (for focus rings) */
 
-    --radius: 0.5rem;
+    --radius: 0.5rem; /* Based on PRD borderRadius.default: "rounded-lg" (0.5rem) */
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Custom variable for PRD iconColor as it doesn't map to a standard Shadcn role */
+    --prd-icon-color: 208 7% 48%; /* PRD iconColor: #6C757D */
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  /* .dark {} - Dark mode variables removed as not specified in PRD for this update */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
+    /* font-family is set via Tailwind config (theme.extend.fontFamily.sans) */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
